@@ -1,12 +1,11 @@
 package com.unijorge.nexall.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,5 +24,8 @@ public abstract class Usuario implements Serializable {
     private String senha;
     private String telefone;
     private String cidade;
+
+    @OneToMany
+    private List<Servico> servicos = new ArrayList<>();
 
 }
